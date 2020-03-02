@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :meetings
   resources :rooms
   devise_for :users
