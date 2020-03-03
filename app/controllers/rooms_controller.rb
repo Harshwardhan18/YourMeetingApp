@@ -1,5 +1,8 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin
+
+  
 
   # GET /rooms
   # GET /rooms.json
@@ -65,6 +68,12 @@ class RoomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+    end
+
+    def must_be_admin
+      unless current_user.admin?
+          redirect_to meetings_path, alert: 'You do not have access'
+      end
     end
 
     # Only allow a list of trusted parameters through.

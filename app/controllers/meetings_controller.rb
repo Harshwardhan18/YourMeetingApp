@@ -26,11 +26,13 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    # raiseStandardError
     respond_to do |format|
       if @meeting.save
         @meeting.users << current_user
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
+        MeetingMailer.with(meeting: @meeting, users: @meeting.users).meeting_scheduled.deliver_now
       else
         format.html { render :new }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
@@ -41,7 +43,7 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
-    respond_to do |format|
+    respond_to do |format|  
       if @meeting.update(meeting_params)
         format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
