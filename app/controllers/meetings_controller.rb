@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings
   # GET /meetings.json
-  def index
+  def index      
       @meetings = current_user.meetings
   end
 

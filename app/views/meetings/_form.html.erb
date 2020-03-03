@@ -1,4 +1,8 @@
-<%= form_with(model: meeting, local: true) do |form| %>
+
+<div class="card" style="width: 27rem;">
+  <div class="card-body">
+    <h4 class="card-title text-center"><strong>Create Meeting</strong></h4>
+    <%= form_with(model: meeting, local: true) do |form| %>
   <% if meeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
@@ -17,17 +21,17 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :start_time %>
+    <%= form.label :start_time %><br>
     <%= form.datetime_select(:start_time, {start_hour: 7,end_hour: 20,:minute_step => 30, :ampm => true}) %>
   </div>
 
   <div class="form-group">
-    <%= form.label :end_time %>
+    <%= form.label :end_time %> <br>
     <%= form.datetime_select(:end_time,{start_hour: 7,end_hour: 20,:minute_step => 30, :ampm => true}) %>
   </div>
 
   <div class="form-group">
-    <%= form.label :user_id %>
+    <%= form.label :user_id %><br>
     <%= form.select(:user_ids, User.all.map {|user| [user.email, user.id]}, {}, id: "event_user_ids", :multiple => true, :class => 'form-control js-selectable') %>
   <%# <%= select :user_id, User.all,{ multiple: true, name: 'meeting[user_id]', class: 'form-control js-searchable' } %>
   <%# <%= select :article, :tags, tags, { selected: selected_tags }, { multiple: true, name: 'article[tags]', class: 'form-control js-searchable' } %>
@@ -42,7 +46,11 @@
 </select>
   </div>
 
-  <div class="actions">
-    <%= form.submit({:class => 'btn btn-dark'}) %>
+  <div class="form-group">
+    <%= form.submit({:class => 'btn btn-success'}) %>
   </div>
 <% end %>
+<br>
+<%= link_to 'Back', meetings_path, class: 'btn btn-info' %>
+  </div>
+</div>

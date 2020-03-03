@@ -22,3 +22,18 @@
      justify-content: flex-end;
      align-content: center;
  }
+
+ .card {
+     margin: 150px auto;
+     box-shadow: 1px 1px 10px 2px rgb(90, 87, 87);
+     border-radius: 10px;
+ }
+
+ .buttons {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .shift-right {
+     float: right;
+ }

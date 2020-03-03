@@ -1,4 +1,4 @@
-<nav class="bg-white mb-4 shadow rounded">
+<nav class="bg-white mb-4 shadow rounded mt-3">
   <ul id="nav-tab" class="tabs list-reset flex">
 
     <li class="active" data-tab="calendar">
@@ -16,6 +16,7 @@
     </li>
 
   </ul>
+  <%= link_to 'Schedule a Meeting', new_meeting_path, class: 'btn-sm btn btn-success mb-3 ml-4' %>
 </nav>
 
 <div class="bg-white p-10 border rounded">
@@ -36,7 +37,7 @@
           </div>
         </div>
 
-        <%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-destroy ml-4" %>
+        <%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-warning ml-4" %>
      <% end %>
   </div>
 

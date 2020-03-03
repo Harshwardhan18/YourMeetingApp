@@ -1,4 +1,7 @@
-<%= form_with(model: room, local: true) do |form| %>
+<div class="card" style="width: 25rem; height: 25rem;">
+  <div class="card-body">
+    <h4 class="card-title text-center"><strong>Create Room</strong></h4>
+    <%= form_with(model: room, local: true) do |form| %>
   <% if room.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
@@ -11,17 +14,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :capacity %>
-    <%= form.number_field :capacity %>
+    <%= form.number_field :capacity, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-success'%>
   </div>
 <% end %>
+<%= link_to 'Back', rooms_path, class: 'btn btn-info'%>
+  </div>
+</div>
