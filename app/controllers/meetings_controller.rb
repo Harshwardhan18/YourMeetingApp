@@ -33,7 +33,7 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       if @meeting.save
         @meeting.users << current_user
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
+        format.html { redirect_to meetings_url, notice: 'Meeting was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
         MeetingMailer.with(meeting: @meeting, users: @meeting.users).meeting_scheduled.deliver_now
       else
@@ -75,7 +75,7 @@ class MeetingsController < ApplicationController
     @meeting.delete
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+      format.html { redirect_to home_index_path, notice: 'Meeting was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -26,9 +26,7 @@
 
   <div class="form-group">
     <%= form.label :user_id %><br>
-    <%= form.select(:user_ids, User.all.map {|user| [user.email, user.id]}, {}, id: "event_user_ids", :multiple => true, :class => 'form-control js-selectable') %>
-  <%# <%= select :user_id, User.all,{ multiple: true, name: 'meeting[user_id]', class: 'form-control js-searchable' } %>
-  <%# <%= select :article, :tags, tags, { selected: selected_tags }, { multiple: true, name: 'article[tags]', class: 'form-control js-searchable' } %>
+    <%= form.select(:user_ids, User.where.not(email: current_user.email).map {|user| [user.email, user.id]}, {}, id: "event_user_ids", :multiple => true, :class => 'form-control js-selectable') %>
   </div>
 
   <div class="form-group">

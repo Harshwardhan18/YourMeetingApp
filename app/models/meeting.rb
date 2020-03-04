@@ -1,8 +1,7 @@
 class Meeting < ApplicationRecord
   has_and_belongs_to_many :users
   belongs_to :room
-  validate :check_capacity
-  validate :check_slot
+  validate :check_capacity, :check_slot, :date_check
   validates :name, presence: true
 
   def check_capacity
@@ -19,6 +18,12 @@ class Meeting < ApplicationRecord
     if(c==0)
     else
       errors.add(:start_time, "Slot Booked")
+    end
+  end
+
+  def date_check
+    if start_time >= end_time
+      errors.add(:start_time, "Incorrect date time choice!!")
     end
   end
 end

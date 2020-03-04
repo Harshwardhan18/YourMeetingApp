@@ -29,7 +29,8 @@
                 <th scope = 'col'>Name</th>
                 <th scope = 'col'>Begins at</th>
                 <th scope = 'col'>End at</th>
-                <th scope = 'col' colspan="2"></th>
+                <th scope = 'col'>Room</th>
+                <th scope = 'col'>Action</th>
                 </tr>
             </thead>
 
@@ -39,8 +40,8 @@
                     <td><%= meeting.name %></td>
                     <td><%= readable_time(meeting.start_time) %></td>
                     <td><%= readable_time(meeting.end_time) %></td>
-                    <td><%= link_to 'Show', meeting, class: 'btn btn-info' %></td>
-                    <td><%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-warning ml-4" %></td>
+                    <td><%= meeting.room.name %></td>
+                    <td><%= link_to "Cancel Meeting", meeting, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-warning" %></td>
                 </tr>
                 <% end %>
             </tbody>

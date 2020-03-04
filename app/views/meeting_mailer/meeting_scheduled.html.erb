@@ -33,7 +33,6 @@
                   <th style="text-align: left; font-size: 14px;">Name:</th>
                   <th style="text-align: left; font-size: 14px;">Starts:</th>
                   <th style="text-align: left; font-size: 14px;">Ends:</th>
-                  <th style="text-align: left; font-size: 14px;">Employees:</th>
                   <th style="text-align: left; font-size: 14px;">Room:</th>
                 </tr>
               </thead>
@@ -42,10 +41,7 @@
                   <td><p><%= @meeting.name %></p></td>
                   <td><p><%= readable_time(@meeting.start_time) %></p></td>
                   <td><p><%= readable_time(@meeting.end_time) %></p></td>
-                    <%# <% @meeting.users.each do |user|%>
-                  <%# <td><p><%= user.email %></p></td>
-                  <%# <%end%>
-                  <td><p><%= @meeting.room.name %></p></td>
+                   <td><p><%= @meeting.room.name %></p></td>
                 </tr>
               </tbody>
             </table>

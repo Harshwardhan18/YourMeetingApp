@@ -7,6 +7,7 @@
                 <th scope = 'col'>Name</th>
                 <th scope = 'col'>Begins at</th>
                 <th scope = 'col'>End at</th>
+                <th scope = 'col'>Room</th>
                 <th scope = 'col' colspan="2"></th>
                 </tr>
             </thead>
@@ -17,6 +18,7 @@
                     <td><%= meeting.name %></td>
                     <td><%= readable_time(meeting.start_time) %></td>
                     <td><%= readable_time(meeting.end_time) %></td>
+                    <td><%= meeting.room.name %></td>
                     <td><%= link_to 'Destroy', destroyAll_meeting_path(meeting), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
                 </tr>
                 <% end %>
