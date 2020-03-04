@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.action_mailer.delivery_method = :smtp
-
+  
   #replace with your own url
   config.action_mailer.perform_deliveries = true
 # SMTP settings for gmail
@@ -62,7 +62,7 @@ config.action_mailer.smtp_settings = {
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  config.require_master_key = true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
