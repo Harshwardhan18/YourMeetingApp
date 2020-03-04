@@ -1,11 +1,14 @@
 class MeetingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :edit, :update, :destroy, :destroyAll]
 
   # GET /meetings
   # GET /meetings.json
   def index      
       @meetings = current_user.meetings
+      @meetings_today = current_user.meetings.where("DATE(start_time) = ?", Date.today)
+      @meetings_upcoming = current_user.meetings.where("DATE(start_time) > ?", Date.today)
+      @meetings_previous = current_user.meetings.where("DATE(start_time) < ?", Date.today)
   end
 
   # GET /meetings/1
@@ -59,11 +62,23 @@ class MeetingsController < ApplicationController
   def destroy
     current_user.meetings.delete(@meeting)
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+      format.html { redirect_to meetings_url, notice: 'You successfully opted out of the meeting' }
       format.json { head :no_content }
     end
   end
 
+  def calendar
+    @meetings = current_user.meetings
+  end
+
+  def destroyAll
+    @meeting.delete
+
+    respond_to do |format|
+      format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting

@@ -1,2 +1,52 @@
-<h1>Home#index</h1>
-<p>Find me a Home please</p>
+<h2>ADMIN PANEL</h2>
+<div class = 'admin-tab ml-2 mr-2 mb-4'>
+    <div class = 'panel-tab'>
+        <table class = 'table'>
+            <thead class= 'thead-dark'>
+                <tr>
+                <th scope = 'col'>Name</th>
+                <th scope = 'col'>Begins at</th>
+                <th scope = 'col'>End at</th>
+                <th scope = 'col' colspan="2"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @meetings.each do |meeting| %>
+                <tr>
+                    <td><%= meeting.name %></td>
+                    <td><%= readable_time(meeting.start_time) %></td>
+                    <td><%= readable_time(meeting.end_time) %></td>
+                    <td><%= link_to 'Destroy', destroyAll_meeting_path(meeting), data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class = 'panel-tab'>
+    <% @users.each do |user| %>
+        <div class="card user-card">
+            <div class="card-body">
+                <h5 class="card-title"><strong><%= user.email %></strong></h5>
+                <div class="dropdown">
+                    <button class="btn btn-success  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Meetings
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <% user.meetings.each do |m| %>
+                            <%= link_to m.name,m, class: 'dropdown-item' %>
+                        <% end %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+
+<%# <div class = 'buttons'>
+
+<%= link_to 'New Room', new_room_path, class: 'btn btn-dark' %>
+<%# <%= link_to 'Your Meetings', meetings_path, class: 'btn btn-info' %> 
+
+<%# </div> %> 

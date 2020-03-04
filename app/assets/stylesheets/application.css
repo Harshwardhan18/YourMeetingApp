@@ -16,16 +16,24 @@
 
 
  */
+.container {
+    max-width: 1800px !important;
+}
 
- .push-right{
-     display: flex;
-     justify-content: flex-end;
-     align-content: center;
- }
+.meeting-link {
+    background-color: rgb(231, 233, 96);
+    border-radius: 5px;
+    padding: 0 5px;
+    margin: 1px auto;
+}
+.email-address {
+    color: white;
+    margin: 0 2px;
+}
 
  .card {
      margin: 150px auto;
-     box-shadow: 1px 1px 10px 2px rgb(90, 87, 87);
+     box-shadow: 1px 2px 5px 2px rgb(131, 128, 128);
      border-radius: 10px;
  }
 
@@ -34,6 +42,36 @@
      justify-content: space-between;
  }
 
- .shift-right {
-     float: right;
- }
+.refact {
+    display: block;
+    margin: 100px auto;
+    box-shadow: 2px 2px 5px 1px rgb(90, 87, 87);
+    border-radius: 10px;
+}
+
+.admin-tab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+}
+.user-card{
+    margin: 10px auto;
+    background: rgba(255, 251, 251, 0.616);
+    box-shadow: 1px 2px 6px rgb(231, 243, 216);
+}
+.panel-tab {
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 2px rgb(185, 180, 180);
+    padding: 15px;
+}
+
+.calendar-view{
+    margin: 150px auto;
+    width: 1000px;
+    padding: 10px;
+    z-index: 2;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 5px 2px rgb(223, 240, 186);
+}

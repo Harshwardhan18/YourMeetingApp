@@ -29,3 +29,5 @@ $(document).on('turbolinks:load', function(){
       // If you are using Bootstrap, please add　`theme: "bootstrap"` too.
     });
   });
+
+  $('.dropdown-toggle').dropdown();

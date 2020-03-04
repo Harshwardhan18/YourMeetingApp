@@ -1,19 +1,14 @@
-<div class="card" style="width: 25rem; height: 25rem;">
+ <% if room.errors.any? %>
+    <div id="error_explanation">
+        <% room.errors.full_messages.each do |message| %>
+          <div class = 'alert alert-danger'><%= message %></div>
+        <% end %>
+    </div>
+  <% end %>
+<div class="card" style="width: 20rem;">
   <div class="card-body">
     <h4 class="card-title text-center"><strong>Create Room</strong></h4>
     <%= form_with(model: room, local: true) do |form| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
-
-      <ul>
-        <% room.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class: 'form-control' %>
@@ -25,9 +20,9 @@
   </div>
 
   <div class="form-group">
-    <%= form.submit class: 'btn btn-success'%>
+    <%= form.submit class: 'btn btn-success btn-block'%>
   </div>
 <% end %>
-<%= link_to 'Back', rooms_path, class: 'btn btn-info'%>
+<%= link_to 'Back', rooms_path, class: 'btn btn-info btn-block'%>
   </div>
 </div>

@@ -1,5 +1,8 @@
-<div class = 'my-10 m-auto p-12 bg-white rounded border border-grey-light text-center shadow max-w-md'>
-    <%= image_tag "no-schedule.svg", alt: "Schedule", width: 300, class: 'mb-2' %>
-    <h1 class = 'text-indigo-darker text-2xl mb-6'>Yohoo!!! No meetings for you yet.</h1>
-    <%= link_to 'Schedule  a meeting', new_meeting_path, class: 'btn btn-dark mb-2' %>
+<div class = 'rounded border border-grey-light text-center refact'>
+    <%= image_tag "no-schedule.svg", alt: "Schedule", width: 600, class: 'mb-2' %>
+    <h1 class = 'text-indigo-darker text-2xl mb-6'>Yoho!!! No meetings for you yet.</h1>
+    <div class = 'buttons ml-4 mr-4'>
+    <%= link_to 'Schedule  a meeting', new_meeting_path, class: 'btn btn-dark mb-3' %>
+    <%= link_to 'Rooms', rooms_path, class: 'btn btn-dark mb-3' if current_user.admin?%>
+    </div>
 </div>

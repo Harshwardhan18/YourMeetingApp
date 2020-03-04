@@ -3,6 +3,7 @@ class Meeting < ApplicationRecord
   belongs_to :room
   validate :check_capacity
   validate :check_slot
+  validates :name, presence: true
 
   def check_capacity
     capacity_pluck = Room.select(:capacity).where(id: room_id).pluck(:capacity)

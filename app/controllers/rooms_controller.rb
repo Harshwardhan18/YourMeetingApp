@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  # GET /rooms/1
+  # GET /rooms/1<<<<<<<<<<       
   # GET /rooms/1.json
   def show
   end
