@@ -23,7 +23,7 @@ class Meeting < ApplicationRecord
   end
 
   def date_check
-    if start_time >= end_time
+    if start_time >= end_time || start_time.to_date != end_time.to_date
       errors.add(:start_time, "Incorrect date time choice!!")
     end
   end
